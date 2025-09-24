@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 
+// Import images
+import schoolEntrance from '../assets/images/school_entrance.jpg';
+import scienceLaboratory from '../assets/images/science_laboratory.jpg';
+import library from '../assets/images/library.jpg';
+import schoolField from '../assets/images/school_field.jpg';
+import computerLaboratory from '../assets/images/computer_laboratory.jpg';
+import graduation from '../assets/images/graduation.jpg';
+import domitories from '../assets/images/domitories.jpg';
+import basketballCourt from '../assets/images/basketball_court.jpg';
+import scienceFair from '../assets/images/science_fair.jpg';
+
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -17,63 +28,63 @@ const Gallery = () => {
       category: 'campus',
       title: 'School Entrance',
       description: 'Main entrance to Chinga Boys High School',
-      imageUrl: '/pictures/school_entrance.jpg'
+      imageUrl: schoolEntrance
     },
     {
       id: 2,
       category: 'academics',
       title: 'Science Laboratory',
       description: 'Modern chemistry and physics laboratory',
-      imageUrl: '/pictures/science_laboratory.jpg'
+      imageUrl: scienceLaboratory
     },
     {
       id: 3,
       category: 'campus',
       title: 'Library',
       description: 'Well-stocked library facility for research and study',
-      imageUrl: '/pictures/library.jpg'
+      imageUrl: library
     },
     {
       id: 4,
       category: 'sports',
       title: 'Sports Field',
       description: 'Football and athletics field for outdoor activities',
-      imageUrl: '/pictures/school_field.jpg'
+      imageUrl: schoolField
     },
     {
       id: 5,
       category: 'academics',
       title: 'Computer Laboratory',
       description: 'Modern computer laboratory with latest technology',
-      imageUrl: '/pictures/computer_laboratory.jpg'
+      imageUrl: computerLaboratory
     },
     {
       id: 6,
       category: 'events',
       title: 'Graduation Ceremony',
       description: 'Annual graduation ceremony celebrating student achievements',
-      imageUrl: '/pictures/graduation.jpg'
+      imageUrl: graduation
     },
     {
       id: 7,
       category: 'campus',
       title: 'Student Dormitories',
       description: 'Comfortable student accommodation facilities',
-      imageUrl: '/pictures/domitories.jpg'
+      imageUrl: domitories
     },
     {
       id: 8,
       category: 'sports',
       title: 'Basketball Court',
       description: 'Indoor basketball facility for sports activities',
-      imageUrl: '/pictures/basketball_court.jpg'
+      imageUrl: basketballCourt
     },
     {
       id: 9,
       category: 'events',
       title: 'Science Fair',
       description: 'Annual science exhibition showcasing student innovations',
-      imageUrl: '/pictures/science_fair.jpg'
+      imageUrl: scienceFair
     }
   ];
 
@@ -128,11 +139,13 @@ const Gallery = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
                     console.log(`Failed to load image: ${image.imageUrl}`);
-                    e.target.style.backgroundColor = '#f3f4f6';
-                    e.target.style.display = 'flex';
-                    e.target.style.alignItems = 'center';
-                    e.target.style.justifyContent = 'center';
-                    e.target.innerHTML = `<span style="color: #6b7280; font-size: 14px;">Image not found<br/>${image.title}</span>`;
+                    e.target.src = `data:image/svg+xml;base64,${btoa(`
+                      <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="#f3f4f6"/>
+                        <text x="50%" y="45%" font-family="Arial, sans-serif" font-size="16" fill="#6b7280" text-anchor="middle">Image not found</text>
+                        <text x="50%" y="60%" font-family="Arial, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">${image.title}</text>
+                      </svg>
+                    `)}`;
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

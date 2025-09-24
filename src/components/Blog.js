@@ -1,5 +1,10 @@
 import React from 'react';
 
+// Import images
+import education from '../assets/images/education.jpg';
+import achievement from '../assets/images/achievement.jpg';
+import events from '../assets/images/events.jpg';
+
 const Blog = () => {
   const blogPosts = [
     {
@@ -8,7 +13,7 @@ const Blog = () => {
       title: 'Top Study Tips for Students',
       excerpt: 'Effective studying strategies to enhance your learning experience.',
       date: '6 days ago',
-      image: '/pictures/education.jpg',
+      image: education,
       bgColor: 'from-purple-600 to-purple-800'
     },
     {
@@ -17,7 +22,7 @@ const Blog = () => {
       title: 'Students Win Sub-County Science And Humanities Contest',
       excerpt: 'Congratulations to our talented students for their outstanding performance.',
       date: '12 days ago',
-      image: '/pictures/achievement.jpg',
+      image: achievement,
       bgColor: 'from-white to-gray-50',
       textColor: 'text-gray-800'
     },
@@ -27,7 +32,7 @@ const Blog = () => {
       title: 'Annual Sports Day Highlights',
       excerpt: 'Join us in celebrating our students\' athletic achievements and school spirit.',
       date: '20 days ago',
-      image: '/pictures/events.jpg',
+      image: events,
       bgColor: 'from-orange-400 to-red-500'
     }
   ];
