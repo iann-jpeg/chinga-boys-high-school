@@ -126,6 +126,14 @@ const Gallery = () => {
                   src={image.imageUrl}
                   alt={image.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    console.log(`Failed to load image: ${image.imageUrl}`);
+                    e.target.style.backgroundColor = '#f3f4f6';
+                    e.target.style.display = 'flex';
+                    e.target.style.alignItems = 'center';
+                    e.target.style.justifyContent = 'center';
+                    e.target.innerHTML = `<span style="color: #6b7280; font-size: 14px;">Image not found<br/>${image.title}</span>`;
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 

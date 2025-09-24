@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAcademicsDropdownOpen, setIsAcademicsDropdownOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
@@ -30,9 +31,69 @@ const Header = () => {
             <a href="#about" className="text-gray-700 hover:text-cyan-600 font-medium transition-colors">
               About Us
             </a>
-            <a href="#academics" className="text-gray-700 hover:text-cyan-600 font-medium transition-colors">
-              Academics
-            </a>
+            
+            {/* Academics Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsAcademicsDropdownOpen(true)}
+              onMouseLeave={() => setIsAcademicsDropdownOpen(false)}
+            >
+              <a 
+                href="#academics" 
+                className="text-gray-700 hover:text-cyan-600 font-medium transition-colors flex items-center"
+              >
+                Academics
+                <svg 
+                  className={`ml-1 w-4 h-4 transition-transform ${isAcademicsDropdownOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+              
+              {/* Dropdown Menu */}
+              {isAcademicsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                  <div className="px-4 py-2">
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Academic Programs</h3>
+                    
+                    {/* Sciences */}
+                    <div className="mb-3">
+                      <h4 className="text-cyan-600 font-medium mb-1">Sciences</h4>
+                      <div className="pl-3 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Mathematics</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Physics</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Chemistry</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Biology</a>
+                      </div>
+                    </div>
+                    
+                    {/* Humanities */}
+                    <div className="mb-3">
+                      <h4 className="text-cyan-600 font-medium mb-1">Humanities</h4>
+                      <div className="pl-3 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">History</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Geography</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">CRE</a>
+                      </div>
+                    </div>
+                    
+                    {/* Technicals */}
+                    <div>
+                      <h4 className="text-cyan-600 font-medium mb-1">Technicals</h4>
+                      <div className="pl-3 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Computer Studies</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Agriculture</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 transition-colors">Business Studies</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            
             <a href="#admissions" className="text-gray-700 hover:text-cyan-600 font-medium transition-colors">
               Admissions
             </a>
@@ -72,7 +133,60 @@ const Header = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
               <a href="#home" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">Home Page</a>
               <a href="#about" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">About Us</a>
-              <a href="#academics" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">Academics</a>
+              
+              {/* Mobile Academics Dropdown */}
+              <div>
+                <button 
+                  onClick={() => setIsAcademicsDropdownOpen(!isAcademicsDropdownOpen)}
+                  className="w-full flex items-center justify-between px-3 py-2 text-gray-700 hover:text-cyan-600 text-left"
+                >
+                  Academics
+                  <svg 
+                    className={`w-4 h-4 transition-transform ${isAcademicsDropdownOpen ? 'rotate-180' : ''}`} 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                
+                {isAcademicsDropdownOpen && (
+                  <div className="pl-6 pr-3 py-2 bg-gray-50">
+                    {/* Sciences */}
+                    <div className="mb-3">
+                      <h4 className="text-cyan-600 font-medium text-sm mb-1">Sciences</h4>
+                      <div className="pl-2 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Mathematics</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Physics</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Chemistry</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Biology</a>
+                      </div>
+                    </div>
+                    
+                    {/* Humanities */}
+                    <div className="mb-3">
+                      <h4 className="text-cyan-600 font-medium text-sm mb-1">Humanities</h4>
+                      <div className="pl-2 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">History</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Geography</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">CRE</a>
+                      </div>
+                    </div>
+                    
+                    {/* Technicals */}
+                    <div>
+                      <h4 className="text-cyan-600 font-medium text-sm mb-1">Technicals</h4>
+                      <div className="pl-2 space-y-1">
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Computer Studies</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Agriculture</a>
+                        <a href="#academics" className="block text-sm text-gray-600 hover:text-cyan-600 py-1">Business Studies</a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <a href="#admissions" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">Admissions</a>
               <a href="#gallery" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">Gallery</a>
               <a href="#blog" className="block px-3 py-2 text-gray-700 hover:text-cyan-600">Blog</a>
