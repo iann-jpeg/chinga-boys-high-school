@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import logo from '../assets/images/logo.jpeg';
+import publicSeal from '../assets/images/public_seal.jpeg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,7 +30,7 @@ const Footer = () => {
             <div className="flex-shrink-0">
               <div className="w-20 h-24 bg-white rounded-lg flex items-center justify-center p-2 shadow-md">
                 <img 
-                  src="/pictures/public_seal.jpeg" 
+                  src={publicSeal} 
                   alt="Public Seal of Kenya" 
                   className="w-full h-full object-contain rounded"
                 />
@@ -85,7 +87,7 @@ const Footer = () => {
           <div className="flex justify-start mb-12">
             <div className="w-20 h-24 bg-white rounded-2xl flex items-center justify-center p-2 border-2 border-gray-200 shadow-lg">
               <img 
-                src="/pictures/logo.jpeg" 
+                src={logo} 
                 alt="Chinga Boys High School Logo" 
                 className="w-full h-full object-contain rounded"
               />

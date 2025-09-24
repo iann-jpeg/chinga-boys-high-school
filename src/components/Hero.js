@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/images/logo.jpeg';
 
 const Hero = () => {
   return (
@@ -58,7 +59,7 @@ const Hero = () => {
                     {/* School Logo */}
                     <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center mb-6 shadow-lg border-4 border-blue-800">
                       <img 
-                        src="/pictures/logo.jpeg" 
+                        src={logo} 
                         alt="Chinga Boys High School Logo" 
                         className="w-28 h-28 object-contain rounded-full"
                       />
@@ -135,7 +136,7 @@ const Hero = () => {
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 bg-white rounded flex items-center justify-center shadow-md">
                 <img 
-                  src="/pictures/logo.jpeg" 
+                  src={logo} 
                   alt="Chinga Boys High School Logo" 
                   className="w-10 h-10 object-contain rounded"
                 />
